@@ -1,5 +1,3 @@
----
-
 # SentimentScope: AI Sentiment Analysis API 🚀
 
 ## Features 🌟
@@ -25,20 +23,13 @@ Here are some screenshots of the **SentimentScope** application in action:
 ![Screenshot 1](path-to-screenshot-1.png)  
 *CSV File Upload Page*
 
-![Screenshot 2](path-to-screenshot-2.png)  
-*Sentiment Analysis Results*
-
----
 
 ## Deployment 🚀
 
 - **Backend**: Hosted on **AWS** using FastAPI
 - **Frontend**: Hosted on **AWS** with React
 
----
 
 ## License 📜
 
 MIT License
-
----
