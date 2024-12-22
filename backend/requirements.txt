@@ -1,0 +1,7 @@
+python-multipart==0.0.9
+pandas==2.2.3
+uvicorn==0.34.0
+fastapi==0.115.6
+transformers==4.47.1
+tensorflow==2.18.0
+ tf-keras==2.18.0
