@@ -20,7 +20,7 @@
 
 Here are some screenshots of the **SentimentScope** application in action:
 
-![Screenshot 1](path-to-screenshot-1.png)  
+![Screenshot 1](screenshots/a.png)  
 *CSV File Upload Page*
 
 
