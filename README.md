@@ -1,5 +1,3 @@
----
-
 # SentimentScope: AI Sentiment Analyszer 🚀
 
 ## Features 🌟
@@ -28,7 +26,6 @@ Here are some screenshots of the **SentimentScope** application in action:
 ![Screenshot 2](path-to-screenshot-2.png)  
 *Sentiment Analysis Results*
 
----
 
 ## Deployment 🚀
 
