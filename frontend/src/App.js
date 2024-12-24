@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import FileUpload from './components/FileUpload';
 import SentimentChart from './components/SentimentChart';
-// import { auth, onAuthStateChanged, signOut, signInWithEmailAndPassword, createUserWithEmailAndPassword } from './firebase-config';
 import axios from 'axios';
 
 import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from './firebase-config';
 
+import apiBaseUrl from './config'; // Import the API base URL
 import './styles.css';  // Global styles
 import './components/Auth.css';  // Component-specific styles
-
-// import './styles.css'; // Global styles for the app
 
 function App() {
   const [chartData, setChartData] = useState(null);
@@ -42,7 +40,8 @@ function App() {
       const formData = new FormData();
       formData.append('file', uploadedFile);
 
-      const response = await axios.post('http://localhost:8000/sentimentanalysis', formData, {
+      // Use apiBaseUrl for the API call
+      const response = await axios.post(`${apiBaseUrl}sentimentanalysis`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
@@ -100,34 +99,25 @@ function App() {
     <div className="app-container">
       {/* Navbar */}
       <nav className="navbar">
-  <div className="navbar-logo">SentimentScope 🚀</div>
-  <ul className="navbar-links">
-    {/* Home Link */}
-    <li><a href="#" onClick={handleGoBack}>Home</a></li>
-
-    {/* About Link */}
-    <li><a href="#about">About</a></li>
-
-    {/* Contact Us Link */}
-    <li><a href="#contact">Contact Us</a></li>
-
-    {/* Conditional Login/Signup button */}
-    {user ? (
-      <li><button onClick={handleLogout} className="navbar-button">Logout</button></li>
-    ) : (
-      <li>
-        <button 
-          onClick={() => setAuthMode(authMode === 'login' ? 'signup' : 'login')} 
-          className="navbar-button"
-        >
-          {authMode === 'login' ? 'Signup' : 'Login'}
-        </button>
-      </li>
-    )}
-  </ul>
-</nav>
-
-
+        <div className="navbar-logo">SentimentScope 🚀</div>
+        <ul className="navbar-links">
+          <li><a href="#" onClick={handleGoBack}>Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+          {user ? (
+            <li><button onClick={handleLogout} className="navbar-button">Logout</button></li>
+          ) : (
+            <li>
+              <button 
+                onClick={() => setAuthMode(authMode === 'login' ? 'signup' : 'login')} 
+                className="navbar-button"
+              >
+                {authMode === 'login' ? 'Signup' : 'Login'}
+              </button>
+            </li>
+          )}
+        </ul>
+      </nav>
 
       <div className="content-container">
         {/* Authentication Section */}
