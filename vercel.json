@@ -1,9 +1,18 @@
 {
   "version": 2,
-  "projects": {
-    "frontend": "./frontend/build",
-    "backend": "./backend"
-  },
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    },
+    {
+      "src": "backend/main.py",
+      "use": "@vercel/python"
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
