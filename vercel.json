@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "projects": {
+    "frontend": "./frontend/build",
+    "backend": "./backend"
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "backend/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "frontend/build/index.html"
+    }
+  ]
+}
