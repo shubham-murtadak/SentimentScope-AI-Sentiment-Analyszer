@@ -1,13 +1,26 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "frontend/package.json",
+      "use": "@vercel/react",
+      "config": {
+        "installCommand": "npm ci --force && npm run build"
+      }
+    },
+    {
+      "src": "backend/main.py",
+      "use": "@vercel/python"
+    }
+  ],
   "routes": [
     {
-      "src": "/backend/(.*)",
-      "dest": "backend/main.py"
+      "src": "/api/(.*)",
+      "dest": "/backend/main.py"
     },
     {
       "src": "/(.*)",
-      "dest": "frontend/build/index.html"
+      "dest": "/frontend/$1"
     }
   ]
 }
