@@ -10,12 +10,15 @@
     },
     {
       "src": "backend/main.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config":{
+        "maxLambdaSize": "50mb"
+      }
     }
   ],
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/backend/(.*)",
       "dest": "/backend/main.py"
     },
     {
