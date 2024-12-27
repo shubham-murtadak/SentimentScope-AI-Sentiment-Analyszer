@@ -1,110 +1,122 @@
-/* src/components/Auth.css
+/* General Styles */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: #f4f4f9; /* Consistent with the body background */
+  color: #333;
+}
 
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    font-family: 'Arial', sans-serif;
+h1, h2 {
+  text-align: center;
+  color: #333;
+  font-size: 2.2em;
+  margin-top: 20px;
+}
+
+/* Authentication container */
+.auth-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 77vh; /* Reduce min-height to move content up */
+  justify-content: flex-center; /* Align form to top */
+  align-items: center;
+  padding: 0px 0px; /* Reduced padding to minimize gap */
+}
+
+.auth-auth-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2rem 3rem;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.auth-auth-container:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Input Fields */
+.auth-auth-input {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.auth-auth-input:focus {
+  border-color: #1ff2f2; /* Accent color */
+  box-shadow: 0 0 5px rgba(31, 242, 242, 0.6);
+}
+
+/* Button Styles */
+.auth-auth-button {
+  background-color: #1ff2f2; /* Primary button color */
+  color: white;
+  padding: 0.9rem 1.5rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.auth-auth-button:hover {
+  background-color: #0078d7; /* Darker shade on hover */
+  transform: translateY(-3px);
+}
+
+/* Sign Up Button */
+.auth-signup-button {
+  background-color: transparent;
+  color: #1ff2f2;
+  border: 2px solid #1ff2f2;
+  padding: 0.9rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+}
+
+.auth-signup-button:hover {
+  background-color: #1ff2f2;
+  color: white;
+}
+
+/* Error Message */
+.auth-error {
+  color: #ff4d4d;
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+/* Responsiveness */
+@media (max-width: 500px) {
+  .auth-auth-container {
+    padding: 2rem 2rem;
   }
-  
-  .auth-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    width: 350px;
-    text-align: center;
-  }
-  
-  .auth-card h2 {
-    margin-bottom: 1rem;
-    color: #333;
-  }
-  
-  .input-group {
-    margin-bottom: 1rem;
-    text-align: left;
-  }
-  
-  .input-group label {
+
+  .auth-auth-input {
     font-size: 0.9rem;
-    color: #555;
-    display: block;
-    margin-bottom: 0.2rem;
   }
-  
-  .input-group input {
-    width: 100%;
-    padding: 0.6rem;
-    margin-top: 0.2rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 0.9rem;
-  }
-  
-  .auth-button {
-    width: 100%;
-    background: #667eea;
-    color: #fff;
-    padding: 0.7rem;
+
+  .auth-auth-button, .auth-signup-button {
+    padding: 0.8rem 1.2rem;
     font-size: 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background 0.3s;
   }
-  
-  .auth-button:hover {
-    background: #5a67d8;
-  }
-  
-  .error-message {
-    color: #e53e3e;
-    font-size: 0.9rem;
-    margin-top: 0.5rem;
-  }
-  
-  .toggle-auth {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #555;
-  }
-  
-  .toggle-button {
-    background: none;
-    border: none;
-    color: #667eea;
-    font-size: 0.9rem;
-    cursor: pointer;
-    text-decoration: underline;
-  }
-  
-  .toggle-button:hover {
-    color: #5a67d8;
-  }
-  
 
-  .auth-wrapper {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #667eea, #764ba2);
+  .auth-auth-container h2 {
+    font-size: 1.8rem;
   }
-  
-  .auth-container {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
-  }
-  
-  .auth-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2rem;
-    width: 350px;
-  }
-   */
+}
