@@ -229,3 +229,79 @@ body {
 .navbar-button:active {
   color: #003f7f; /* Slightly darker color when clicked */
 }
+
+/* Auth Container Styling */
+.auth-container {
+  background: #ffffff; /* White background */
+  padding: 30px;
+  border-radius: 10px;
+  border: 2px solid #ccc; /* Light gray border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  width: 100%;
+  max-width: 400px; /* Limit width */
+  margin: 20px auto; /* Center horizontally */
+  text-align: center;
+}
+
+/* Auth Title (Login/Signup) */
+.auth-container h2 {
+  font-size: 1.8rem;
+  color: #2E3A59; /* Dark Slate Gray */
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+/* Input Fields Styling */
+.auth-input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 2px solid #ddd; /* Light gray border */
+  border-radius: 6px;
+  background-color: #f9f9f9; /* Soft background */
+  font-size: 1rem;
+  color: #333;
+}
+
+.auth-input:focus {
+  border-color: #FF6B6B; /* Soft Coral */
+  outline: none;
+}
+
+/* Auth Button Styling */
+.auth-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #FF6B6B; /* Soft Coral */
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-button:hover {
+  background-color: #e55b5b; /* Darker Soft Coral */
+}
+
+.auth-button:disabled {
+  background-color: #9e9e9e;
+  cursor: not-allowed;
+}
+
+/* Toggle Between Login and Signup Mode */
+.auth-toggle {
+  font-size: 1rem;
+  color: #2E3A59;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.auth-toggle:hover {
+  color: #FF6B6B; /* Highlight Soft Coral on hover */
+}
+
