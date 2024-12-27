@@ -4,10 +4,9 @@ import SentimentChart from './components/SentimentChart';
 import axios from 'axios';
 
 import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from './firebase-config';
+import './styles.css'; // Global styles
 
-import apiBaseUrl from './config'; // Import the API base URL
-import './styles.css';  // Global styles
-import './components/Auth.css';  // Component-specific styles
+const API_BASE_URL = "http://localhost:8000"; // Update as per your backend URL
 
 function App() {
   const [chartData, setChartData] = useState(null);
@@ -40,8 +39,7 @@ function App() {
       const formData = new FormData();
       formData.append('file', uploadedFile);
 
-      // Use apiBaseUrl for the API call
-      const response = await axios.post(`${apiBaseUrl}sentimentanalysis`, formData, {
+      const response = await axios.post(`${API_BASE_URL}/sentimentanalysis`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
@@ -64,7 +62,6 @@ function App() {
     setUploadedFile(null);
   };
 
-  // Authentication Handlers
   const handleLogin = async () => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
@@ -97,7 +94,6 @@ function App() {
 
   return (
     <div className="app-container">
-      {/* Navbar */}
       <nav className="navbar">
         <div className="navbar-logo">SentimentScope 🚀</div>
         <ul className="navbar-links">
@@ -108,8 +104,8 @@ function App() {
             <li><button onClick={handleLogout} className="navbar-button">Logout</button></li>
           ) : (
             <li>
-              <button 
-                onClick={() => setAuthMode(authMode === 'login' ? 'signup' : 'login')} 
+              <button
+                onClick={() => setAuthMode(authMode === 'login' ? 'signup' : 'login')}
                 className="navbar-button"
               >
                 {authMode === 'login' ? 'Signup' : 'Login'}
@@ -120,7 +116,6 @@ function App() {
       </nav>
 
       <div className="content-container">
-        {/* Authentication Section */}
         {!user && (
           <div className="auth-container">
             <h2>{authMode === 'login' ? 'Login' : 'Signup'}</h2>
@@ -144,7 +139,6 @@ function App() {
           </div>
         )}
 
-        {/* Main Content for Authenticated Users */}
         {user && (
           <>
             {!chartData && !loading && (
@@ -158,20 +152,17 @@ function App() {
               </div>
             )}
 
-            {/* Display Sentiment Chart */}
             {chartData && (
               <div className="chart-container">
                 <SentimentChart sentimentData={chartData} />
               </div>
             )}
 
-            {/* Loading State */}
             {loading && <div className="loading">Analyzing sentiment...</div>}
           </>
         )}
       </div>
 
-      {/* Footer */}
       <footer className="footer">
         <p>&copy; 2024 SentimentScope 🚀. All Rights Reserved.</p>
       </footer>
