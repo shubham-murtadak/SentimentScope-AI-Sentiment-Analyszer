@@ -11,8 +11,5 @@
       "src": "/(.*)",
       "dest": "main.py"
     }
-  ],
-  "env": {
-    "START_COMMAND": "gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app"
-  }
+  ]
 }
