@@ -3,19 +3,30 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "build"
-      }
+      "use": "@vercel/static-build"
     }
   ],
-  "env": {
-    "CI": "false"
-  },
   "routes": [
     {
       "src": "/(.*)",
       "dest": "/index.html"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
     }
-  ]
+  ],
+  "github": {
+    "enabled": true
+  },
+  "functions": {
+    "api": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "static": {
+    "src": "/public",
+    "dest": "/public"
+  }
 }
